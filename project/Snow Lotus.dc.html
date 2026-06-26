@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  ::-webkit-scrollbar { width: 0; height: 0; }
+  @keyframes auraFade { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform:none; } }
+  @keyframes auraTwinkle { 0%,100% { opacity:.18; transform: scale(.82); } 50% { opacity:.85; transform: scale(1); } }
+  @keyframes slSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  @keyframes auraFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes auraDrawer { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+  @keyframes auraScrim { from { opacity:0; } to { opacity:1; } }
+  @keyframes auraPop { 0% { transform: scale(.7); opacity:0; } 60% { transform: scale(1.06); } 100% { transform: scale(1); opacity:1; } }
+</style>
+</helmet>
+<x-import component="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;position:relative;background:#F8F4F0;color:#2C1810;font-family:Mulish,system-ui,sans-serif;overflow:hidden">
+
+<!-- ════════ SPLASH ════════ -->
+<sc-if value="{{ isSplash }}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 36px;background:radial-gradient(120% 80% at 50% 18%,#EDE8E2 0%,#F8F4F0 55%,#F3EDE7 100%)">
+  <!-- constellation dots -->
+  <div style="position:absolute;top:108px;left:42px;width:2px;height:2px;border-radius:50%;background:#C07858;opacity:.4;animation:auraTwinkle 4s ease-in-out infinite"></div>
+  <div style="position:absolute;top:126px;left:66px;width:1.5px;height:1.5px;border-radius:50%;background:#AB8070;opacity:.3;animation:auraTwinkle 3.2s ease-in-out .4s infinite"></div>
+  <div style="position:absolute;top:164px;right:46px;width:2px;height:2px;border-radius:50%;background:#AB8070;opacity:.35;animation:auraTwinkle 2.8s ease-in-out .8s infinite"></div>
+  <div style="position:absolute;top:182px;right:64px;width:1.5px;height:1.5px;border-radius:50%;background:#C07858;opacity:.28;animation:auraTwinkle 3.6s ease-in-out 1.2s infinite"></div>
+  <div style="position:absolute;bottom:198px;left:52px;width:2px;height:2px;border-radius:50%;background:#C07858;opacity:.35;animation:auraTwinkle 3.8s ease-in-out .3s infinite"></div>
+  <div style="position:absolute;bottom:244px;right:50px;width:1.5px;height:1.5px;border-radius:50%;background:#C07858;opacity:.32;animation:auraTwinkle 4.2s ease-in-out .6s infinite"></div>
+  <!-- snowflake logo -->
+  <div style="margin-bottom:30px;animation:auraFloat 7s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(192,120,88,.22))">
+    <svg viewBox="0 0 120 120" width="108" height="108" style="display:block">
+      <defs>
+        <g id="sl-arm-lt">
+          <line x1="60" y1="60" x2="60" y2="22" stroke="#C07858" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="60" y1="38" x2="66.5" y2="33" stroke="#C07858" stroke-width="1" stroke-linecap="round" opacity="0.82"/>
+          <line x1="60" y1="38" x2="53.5" y2="33" stroke="#C07858" stroke-width="1" stroke-linecap="round" opacity="0.82"/>
+          <line x1="60" y1="48" x2="64.5" y2="45" stroke="#C07858" stroke-width="0.7" stroke-linecap="round" opacity="0.58"/>
+          <line x1="60" y1="48" x2="55.5" y2="45" stroke="#C07858" stroke-width="0.7" stroke-linecap="round" opacity="0.58"/>
+          <circle cx="60" cy="22" r="2.2" fill="#C07858"/>
+        </g>
+      </defs>
+      <circle cx="60" cy="60" r="50" fill="none" stroke="#C07858" stroke-width="0.5" opacity="0.2"/>
+      <use href="#sl-arm-lt"/>
+      <use href="#sl-arm-lt" transform="rotate(60,60,60)"/>
+      <use href="#sl-arm-lt" transform="rotate(120,60,60)"/>
+      <use href="#sl-arm-lt" transform="rotate(180,60,60)"/>
+      <use href="#sl-arm-lt" transform="rotate(240,60,60)"/>
+      <use href="#sl-arm-lt" transform="rotate(300,60,60)"/>
+      <circle cx="60" cy="60" r="3.8" fill="#C07858"/>
+      <circle cx="60" cy="60" r="1.8" fill="rgba(248,244,240,0.9)"/>
+      <circle cx="85" cy="17" r="1.3" fill="#C07858" opacity="0.38"/>
+      <circle cx="110" cy="60" r="1.3" fill="#C07858" opacity="0.38"/>
+      <circle cx="85" cy="103" r="1.3" fill="#C07858" opacity="0.38"/>
+      <circle cx="35" cy="103" r="1.3" fill="#C07858" opacity="0.38"/>
+      <circle cx="10" cy="60" r="1.3" fill="#C07858" opacity="0.38"/>
+      <circle cx="35" cy="17" r="1.3" fill="#C07858" opacity="0.38"/>
+    </svg>
+  </div>
+  <div style="font-family:Spectral,serif;font-size:36px;font-weight:500;letter-spacing:4px;line-height:1;color:#2C1810">SNOW LOTUS</div>
+  <div style="font-size:11px;color:#C07858;margin-top:10px;letter-spacing:2.5px;font-weight:700;opacity:.75">FOR EVERY SKINCARE JOURNEY</div>
+  <div style="font-size:13px;color:#8A6050;margin-top:16px;line-height:1.65;max-width:248px">Find your esthetician. Book your ritual. Track your skin. All in one place.</div>
+  <div onClick="{{ goRole }}" style="margin-top:44px;width:100%;max-width:300px;padding:17px;border-radius:16px;background:#C07858;color:#F8F4F0;font-weight:800;font-size:16px;cursor:pointer;box-shadow:0 10px 28px rgba(192,120,88,.22)">Begin</div>
+  <div style="font-size:12px;color:#AB9080;margin-top:18px">Already have a studio? <span style="color:#C07858;font-weight:700">Sign in</span></div>
+</div>
+</sc-if>
+
+<!-- ════════ ROLE ════════ -->
+<sc-if value="{{ isRole }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;overflow-y:auto;padding:96px 26px 40px">
+  <div style="font-family:Spectral,serif;font-size:32px;font-weight:600;line-height:1.15">First — who's<br>joining us?</div>
+  <div style="font-size:14px;color:#8A6050;margin-top:12px;line-height:1.5">This shapes your whole experience. You can always switch later.</div>
+  <div onClick="{{ chooseClient }}" style="margin-top:30px;padding:24px;border-radius:22px;background:linear-gradient(150deg,#FFFFFF,#F8F4F0);border:1px solid rgba(44,24,16,0.09);cursor:pointer;display:flex;gap:16px;align-items:center">
+    <div style="width:52px;height:52px;border-radius:50%;background:rgba(192,120,88,.10);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ph-light ph-sparkle" style="font-size:26px;color:#AB8070"></i></div>
+    <div style="flex:1">
+      <div style="font-family:Spectral,serif;font-size:20px;font-weight:600">I'm a client</div>
+      <div style="font-size:13px;color:#8A6050;margin-top:3px">Find an esthetician who gets me</div>
+    </div>
+    <i class="ph-light ph-arrow-right" style="font-size:20px;color:#AB9080"></i>
+  </div>
+  <div onClick="{{ chooseEsti }}" style="margin-top:16px;padding:24px;border-radius:22px;background:linear-gradient(150deg,#FFFFFF,#F8F4F0);border:1px solid rgba(44,24,16,0.09);cursor:pointer;display:flex;gap:16px;align-items:center">
+    <div style="width:52px;height:52px;border-radius:50%;background:rgba(192,120,88,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ph-light ph-flower-lotus" style="font-size:26px;color:#C07858"></i></div>
+    <div style="flex:1">
+      <div style="font-family:Spectral,serif;font-size:20px;font-weight:600">I'm an esthetician</div>
+      <div style="font-size:13px;color:#8A6050;margin-top:3px">Build my studio &amp; book clients</div>
+    </div>
+    <i class="ph-light ph-arrow-right" style="font-size:20px;color:#AB9080"></i>
+  </div>
+</div>
+</sc-if>
+
+<!-- ════════ INTERESTS ════════ -->
+<sc-if value="{{ isInterests }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column">
+  <div style="padding:96px 26px 6px">
+    <div style="font-size:12px;letter-spacing:1.5px;color:#C07858;font-weight:700">STEP 1 OF 2</div>
+    <div style="font-family:Spectral,serif;font-size:30px;font-weight:600;line-height:1.15;margin-top:8px">What are you<br>drawn to?</div>
+    <div style="font-size:13.5px;color:#8A6050;margin-top:10px">Pick 3–5 and we'll curate your feed.</div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:18px 26px 12px">
+    <div style="display:flex;flex-wrap:wrap;gap:10px">
+      <sc-for list="{{ interestChips }}" as="c" hint-placeholder-count="9">
+        <div onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="padding:14px 26px 30px;background:linear-gradient(rgba(248,244,240,0),#F8F4F0 30%)">
+    <div onClick="{{ goLocation }}" style="{{ continueStyle }}">{{ continueLabel }}</div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ════════ LOCATION ════════ -->
+<sc-if value="{{ isLocation }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column">
+  <div style="padding:96px 26px 6px">
+    <div style="font-size:12px;letter-spacing:1.5px;color:#C07858;font-weight:700">STEP 2 OF 2</div>
+    <div style="font-family:Spectral,serif;font-size:30px;font-weight:600;line-height:1.15;margin-top:8px">Where should<br>we look?</div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:26px">
+    <div style="font-size:12px;color:#8A6050;font-weight:700;letter-spacing:.4px;margin-bottom:8px">YOUR LOCATION</div>
+    <div style="display:flex;align-items:center;gap:12px;padding:16px;border-radius:16px;background:#FFFFFF;border:1px solid rgba(44,24,16,0.09)">
+      <i class="ph-light ph-map-pin" style="font-size:22px;color:#C07858"></i>
+      <input value="{{ locText }}" onChange="{{ setLoc }}" style="flex:1;background:transparent;border:none;outline:none;color:#2C1810;font-size:16px;font-family:Mulish" />
+      <i class="ph-light ph-crosshair" style="font-size:20px;color:#AB9080"></i>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin:34px 0 6px">
+      <div style="font-size:12px;color:#8A6050;font-weight:700;letter-spacing:.4px">DISTANCE</div>
+      <div style="font-family:Spectral,serif;font-size:22px;color:#C07858">{{ distance }} mi</div>
+    </div>
+    <input type="range" min="1" max="50" value="{{ distance }}" onInput="{{ setDistance }}" style="width:100%;accent-color:#C07858;height:6px" />
+    <div style="display:flex;justify-content:space-between;font-size:11px;color:#AB9080;margin-top:6px"><span>1 mi</span><span>50 mi</span></div>
+    <div style="margin-top:30px;padding:18px;border-radius:16px;background:rgba(192,120,88,.07);border:1px solid rgba(192,120,88,.18);display:flex;gap:12px;align-items:flex-start">
+      <i class="ph-light ph-moon-stars" style="font-size:20px;color:#AB8070;margin-top:2px"></i>
+      <div style="font-size:13px;color:#7A5040;line-height:1.5">We found <b style="color:#2C1810">5 estheticians</b> within {{ distance }} miles who match your vibe.</div>
+    </div>
+  </div>
+  <div style="padding:14px 26px 30px;background:linear-gradient(rgba(248,244,240,0),#F8F4F0 30%)">
+    <div onClick="{{ finishOnboard }}" style="width:100%;padding:17px;border-radius:16px;background:#C07858;color:#F8F4F0;font-weight:800;font-size:16px;text-align:center;cursor:pointer">Show me my feed</div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ════════ ESTI SETUP ════════ -->
+<sc-if value="{{ isSetup }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column">
+  <div style="padding:90px 26px 6px">
+    <div style="font-size:12px;letter-spacing:1.5px;color:#C07858;font-weight:700">CREATE YOUR STUDIO</div>
+    <div style="font-family:Spectral,serif;font-size:28px;font-weight:600;line-height:1.15;margin-top:8px">Let's set the scene</div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:20px 26px 12px">
+    <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:22px">
+      <div style="width:88px;height:88px;border-radius:50%;background:repeating-linear-gradient(135deg,#EBE5DF 0 9px,#E6E0DA 9px 18px);display:flex;align-items:center;justify-content:center;border:1px solid rgba(236,226,216,.12)"><i class="ph-light ph-camera" style="font-size:26px;color:#C07858"></i></div>
+      <div style="font-size:12px;color:#AB9080;margin-top:8px">Add a profile photo</div>
+    </div>
+    <div style="font-size:12px;color:#8A6050;font-weight:700;margin-bottom:6px">DISPLAY NAME</div>
+    <div style="padding:14px 16px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(44,24,16,0.09);font-size:16px;color:#2C1810;margin-bottom:18px">Luna Vale</div>
+    <div style="font-size:12px;color:#8A6050;font-weight:700;margin-bottom:6px">SPECIALTY</div>
+    <div style="padding:14px 16px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(44,24,16,0.09);font-size:16px;color:#2C1810;margin-bottom:18px">Holistic facials &amp; gua sha</div>
+    <div style="font-size:12px;color:#8A6050;font-weight:700;margin-bottom:6px">YOUR BIO</div>
+    <div style="padding:14px 16px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(44,24,16,0.09);font-size:14.5px;color:#7A5040;line-height:1.5;margin-bottom:18px">Holistic facials, gua sha, and quiet rituals for your skin. Booking by appointment in a candlelit SE studio. Come exhale.</div>
+    <div style="font-size:12px;color:#8A6050;font-weight:700;margin-bottom:8px">WHAT YOU OFFER</div>
+    <div style="display:flex;flex-wrap:wrap;gap:9px">
+      <sc-for list="{{ profileTagChips }}" as="c" hint-placeholder-count="6">
+        <div onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="padding:14px 26px 30px;background:linear-gradient(rgba(248,244,240,0),#F8F4F0 30%)">
+    <div onClick="{{ finishSetup }}" style="width:100%;padding:17px;border-radius:16px;background:#C07858;color:#F8F4F0;font-weight:800;font-size:16px;text-align:center;cursor:pointer">Open my studio</div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ════════ EXPLORE (SWIPE DECK) ════════ -->
+<sc-if value="{{ isExplore }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:52px 20px 6px">
+    <div onClick="{{ toggleMenu }}" style="width:42px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-list" style="font-size:24px;color:#2C1810"></i></div>
+    <div style="font-family:Spectral,serif;font-size:25px;font-weight:600;letter-spacing:.5px">Snow Lotus</div>
+    <div onClick="{{ openJournal }}" style="width:42px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-moon-stars" style="font-size:23px;color:#C07858"></i></div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:18px;font-size:11px;color:#AB9080;padding:2px 0 4px;letter-spacing:.3px">
+    <span>← skip</span><span style="color:#C07858">↑ save</span><span>explore →</span>
+  </div>
+  <div style="flex:1;position:relative;margin:8px 18px 4px">
+    <sc-if value="{{ hasCards }}" hint-placeholder-val="{{ true }}">
+      <sc-if value="{{ hasNext }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;left:0;right:0;top:14px;bottom:0;border-radius:26px;background:repeating-linear-gradient(135deg,#37303f 0 11px,#322b39 11px 22px);transform:scale(.94);opacity:.55;border:1px solid rgba(44,24,16,0.06)"></div>
+      </sc-if>
+      <div ref="{{ cardRef }}" onPointerDown="{{ onCardDown }}" onPointerMove="{{ onCardMove }}" onPointerUp="{{ onCardUp }}" onPointerCancel="{{ onCardUp }}" style="position:absolute;inset:0;border-radius:26px;overflow:hidden;cursor:grab;touch-action:none;background:repeating-linear-gradient(135deg,#EBE5DF 0 13px,#E5DFDA 13px 26px);box-shadow:0 8px 32px rgba(44,24,16,.10);border:1px solid rgba(44,24,16,0.09);will-change:transform">
+        <div style="position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 30%,rgba(192,120,88,.06),transparent 70%)"></div>
+        <div style="position:absolute;top:14px;left:16px;font-family:'SF Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.5px;color:rgba(236,226,216,.5);background:rgba(0,0,0,.28);padding:5px 9px;border-radius:7px">portfolio · {{ topEsti.cover }}</div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(transparent,rgba(248,244,240,.3) 38%,rgba(248,244,240,.96))"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:22px 22px 24px">
+          <div style="display:flex;align-items:center;gap:8px;color:#C07858;font-size:12.5px;font-weight:700;margin-bottom:7px"><i class="ph-fill ph-map-pin" style="font-size:13px"></i>{{ topEsti.distLabel }} · {{ topEsti.loc }}</div>
+          <div style="font-family:Spectral,serif;font-size:32px;font-weight:600;line-height:1.05">{{ topEsti.name }}</div>
+          <div style="font-size:14px;color:#5A3828;margin-top:4px">{{ topEsti.specialty }}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:13px">
+            <sc-for list="{{ topEsti.tags }}" as="t" hint-placeholder-count="3">
+              <div style="padding:6px 11px;border-radius:999px;background:rgba(255,255,255,0.28);backdrop-filter:blur(14px) saturate(1.8);-webkit-backdrop-filter:blur(14px) saturate(1.8);border:1px solid rgba(255,255,255,0.55);font-size:11.5px;font-weight:600;color:#2C1810;box-shadow:0 2px 8px rgba(44,24,16,0.10),inset 0 1px 0 rgba(255,255,255,0.65)">{{ t }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div ref="{{ skipCue }}" style="position:absolute;top:30px;right:24px;opacity:0;transform:rotate(12deg);border:3px solid #9683a0;color:#AB8070;font-weight:800;font-size:26px;letter-spacing:2px;padding:6px 14px;border-radius:12px;font-family:Mulish">SKIP</div>
+        <div ref="{{ likeCue }}" style="position:absolute;top:30px;left:24px;opacity:0;transform:rotate(-12deg);border:3px solid #cdab87;color:#C07858;font-weight:800;font-size:22px;letter-spacing:1px;padding:6px 14px;border-radius:12px;font-family:Mulish">EXPLORE</div>
+        <div ref="{{ saveCue }}" style="position:absolute;top:18px;left:50%;transform:translateX(-50%);opacity:0;display:flex;flex-direction:column;align-items:center;color:#C46464"><i class="ph-fill ph-heart" style="font-size:46px"></i><span style="font-weight:800;letter-spacing:2px;font-size:14px">SAVE</span></div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ deckDone }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px">
+        <i class="ph-light ph-moon" style="font-size:46px;color:#C07858"></i>
+        <div style="font-family:Spectral,serif;font-size:24px;margin-top:14px">That's everyone nearby</div>
+        <div style="font-size:13.5px;color:#8A6050;margin-top:8px;line-height:1.5;max-width:240px">You've seen all 5 estheticians in your area. Widen your distance or revisit the deck.</div>
+        <div onClick="{{ resetDeck }}" style="margin-top:22px;padding:13px 26px;border-radius:14px;border:1px solid rgba(192,120,88,.35);color:#C07858;font-weight:700;font-size:14px;cursor:pointer">Start over</div>
+      </div>
+    </sc-if>
+  </div>
+  <sc-if value="{{ hasCards }}" hint-placeholder-val="{{ true }}">
+  <div style="display:flex;align-items:center;justify-content:center;gap:24px;padding:12px 0 108px">
+    <div onClick="{{ doSkip }}" style="width:58px;height:58px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(192,120,88,.28);display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-x" style="font-size:25px;color:#AB8070"></i></div>
+    <div onClick="{{ doSave }}" style="width:48px;height:48px;border-radius:50%;background:rgba(196,100,100,.09);border:1px solid rgba(196,100,100,.35);display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-heart" style="font-size:22px;color:#C46464"></i></div>
+    <div onClick="{{ doExplore }}" style="width:58px;height:58px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(192,120,88,.28);display:flex;align-items:center;justify-content:center;cursor:pointer" data-comment-anchor="0547aae042-div"><i class="ph-light ph-thumbs-up" style="font-size:25px;color:#C07858"></i></div>
+  </div>
+  </sc-if>
+</div>
+</sc-if>
+
+<!-- ════════ SEARCH ════════ -->
+<sc-if value="{{ isSearch }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;overflow-y:auto;padding-bottom:108px">
+  <div style="padding:54px 22px 8px">
+    <div style="font-family:Spectral,serif;font-size:28px;font-weight:600">Search</div>
+    <div style="display:flex;align-items:center;gap:10px;margin-top:14px;padding:13px 15px;border-radius:15px;background:#FFFFFF;border:1px solid rgba(44,24,16,0.09)">
+      <i class="ph-light ph-magnifying-glass" style="font-size:20px;color:#C07858"></i>
+      <input value="{{ query }}" onChange="{{ setQuery }}" placeholder="Try 'lgbtq+ friendly' or a name" style="flex:1;background:transparent;border:none;outline:none;color:#2C1810;font-size:15px;font-family:Mulish" />
+    </div>
+  </div>
+  <div style="padding:6px 22px">
+    <div style="font-size:12px;color:#AB9080;font-weight:700;letter-spacing:.5px;margin:10px 0 10px">TRY SEARCHING</div>
+    <div style="display:flex;flex-wrap:wrap;gap:9px" data-comment-anchor="73c1e682a1-div">
+      <sc-for list="{{ suggested }}" as="s" hint-placeholder-count="5">
+        <div onClick="{{ s.onClick }}" style="padding:8px 14px;border-radius:999px;background:rgba(192,120,88,.08);border:1px solid rgba(192,120,88,.22);font-size:13px;color:#7A5040;font-weight:600;cursor:pointer">{{ s.label }}</div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="padding:14px 22px 0">
+    <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ false }}">
+      <div style="font-size:12px;color:#AB9080;font-weight:700;letter-spacing:.5px;margin-bottom:6px">{{ resultsLabel }}</div>
+      <sc-for list="{{ searchResults }}" as="e" hint-placeholder-count="3">
+        <div onClick="{{ e.onClick }}" style="display:flex;gap:13px;align-items:center;padding:13px 0;border-bottom:1px solid rgba(44,24,16,0.07);cursor:pointer">
+          <div style="{{ e.avatarStyle }}">{{ e.initials }}</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-family:Spectral,serif;font-size:17px;font-weight:600">{{ e.name }}</div>
+            <div style="font-size:13px;color:#8A6050;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ e.specialty }}</div>
+            <div style="font-size:11.5px;color:#C07858;margin-top:3px">{{ e.tagline }}</div>
+          </div>
+          <i class="ph-light ph-caret-right" style="font-size:18px;color:#AB9080"></i>
+        </div>
+      </sc-for>
+    </sc-if>
+    <sc-if value="{{ noQuery }}" hint-placeholder-val="{{ true }}">
+      <div style="text-align:center;padding:50px 20px;color:#AB9080">
+        <i class="ph-light ph-compass" style="font-size:40px;color:#C0A890"></i>
+        <div style="font-size:14px;margin-top:12px;line-height:1.5">Search by name, specialty,<br>or what you're looking for.</div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center;padding:46px 20px;color:#AB9080">
+        <i class="ph-light ph-moon" style="font-size:38px;color:#C0A890"></i>
+        <div style="font-size:14px;margin-top:12px">No estheticians match "{{ query }}" yet.</div>
+      </div>
+    </sc-if>
+  </div>
+</div>
+</sc-if>
+
+<!-- ════════ SAVED ════════ -->
+<sc-if value="{{ isSaved }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;overflow-y:auto;padding-bottom:108px">
+  <div style="padding:54px 22px 10px">
+    <div style="font-family:Spectral,serif;font-size:28px;font-weight:600">Saved</div>
+    <div style="font-size:13.5px;color:#8A6050;margin-top:4px">Estheticians you're keeping an eye on.</div>
+  </div>
+  <sc-if value="{{ hasSaved }}" hint-placeholder-val="{{ true }}">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:13px;padding:8px 22px 0">
+      <sc-for list="{{ savedEstis }}" as="e" hint-placeholder-count="2">
+        <div onClick="{{ e.onClick }}" style="border-radius:18px;overflow:hidden;background:#FFFFFF;border:1px solid rgba(44,24,16,0.08);cursor:pointer">
+          <div style="position:relative;height:118px;background:repeating-linear-gradient(135deg,#3f3748 0 11px,#372f41 11px 22px)">
+            <div onClick="{{ e.onUnsave }}" style="position:absolute;top:8px;right:8px;width:32px;height:32px;border-radius:50%;background:rgba(248,244,240,.85);display:flex;align-items:center;justify-content:center"><i class="ph-fill ph-heart" style="font-size:16px;color:#C46464"></i></div>
+          </div>
+          <div style="padding:11px 12px 13px">
+            <div style="font-family:Spectral,serif;font-size:16px;font-weight:600;line-height:1.1">{{ e.name }}</div>
+            <div style="font-size:12px;color:#8A6050;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ e.specialty }}</div>
+            <div style="font-size:11px;color:#C07858;margin-top:5px">{{ e.distLabel }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </sc-if>
+  <sc-if value="{{ noSaved }}" hint-placeholder-val="{{ false }}">
+    <div style="text-align:center;padding:60px 30px;color:#AB9080">
+      <i class="ph-light ph-heart" style="font-size:42px;color:#C0A890"></i>
+      <div style="font-size:14px;margin-top:14px;line-height:1.5">Nothing saved yet. Swipe up<br>on the explore deck to save.</div>
+    </div>
+  </sc-if>
+</div>
+</sc-if>
+
+<!-- ════════ MESSAGES ════════ -->
+<sc-if value="{{ isMessages }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;overflow-y:auto;padding-bottom:108px">
+  <div style="padding:54px 22px 6px">
+    <div style="font-family:Spectral,serif;font-size:28px;font-weight:600">Messages</div>
+  </div>
+  <div style="padding:6px 22px 0">
+    <sc-for list="{{ threadList }}" as="t" hint-placeholder-count="2">
+      <div onClick="{{ t.onClick }}" style="display:flex;gap:13px;align-items:center;padding:13px 0;border-bottom:1px solid rgba(44,24,16,0.07);cursor:pointer">
+        <div style="{{ t.avatarStyle }}">{{ t.initials }}</div>
+        <div style="flex:1;min-width:0">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <div style="font-family:Spectral,serif;font-size:17px;font-weight:600">{{ t.name }}</div>
+            <div style="font-size:11px;color:#AB9080">{{ t.time }}</div>
+          </div>
+          <div style="font-size:13px;color:#8A6050;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px">{{ t.last }}</div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<!-- ════════ THREAD ════════ -->
+<sc-if value="{{ isThread }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column">
+  <div style="display:flex;align-items:center;gap:12px;padding:52px 16px 12px;border-bottom:1px solid rgba(44,24,16,0.07);background:#F8F4F0">
+    <div onClick="{{ back }}" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-arrow-left" style="font-size:22px;color:#2C1810"></i></div>
+    <div style="{{ atAvatarStyle }}">{{ atInitials }}</div>
+    <div>
+      <div style="font-family:Spectral,serif;font-size:17px;font-weight:600">{{ atName }}</div>
+      <div style="font-size:11.5px;color:#5A9A72">● Usually replies within an hour</div>
+    </div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:18px 18px 8px;display:flex;flex-direction:column;gap:9px">
+    <div style="text-align:center;font-size:11px;color:#AB9080;margin-bottom:4px">Today</div>
+    <sc-for list="{{ msgItems }}" as="m" hint-placeholder-count="3">
+      <div style="{{ m.rowStyle }}"><div style="{{ m.bubbleStyle }}">{{ m.text }}</div></div>
+    </sc-for>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;padding:10px 16px 30px;border-top:1px solid rgba(44,24,16,0.09)">
+    <div style="flex:1;display:flex;align-items:center;gap:8px;padding:11px 16px;border-radius:22px;background:#FFFFFF;border:1px solid rgba(44,24,16,0.09)">
+      <input value="{{ draft }}" onChange="{{ setDraft }}" placeholder="Message…" style="flex:1;background:transparent;border:none;outline:none;color:#2C1810;font-size:15px;font-family:Mulish" />
+    </div>
+    <div onClick="{{ sendMsg }}" style="width:46px;height:46px;border-radius:50%;background:#C07858;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0"><i class="ph-fill ph-paper-plane-right" style="font-size:20px;color:#F8F4F0"></i></div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ════════ ESTI PROFILE ════════ -->
+<sc-if value="{{ isEstiProfile }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;overflow-y:auto;padding-bottom:108px">
+  <div style="position:relative;height:230px;background:repeating-linear-gradient(135deg,#EBE5DF 0 13px,#E5DFDA 13px 26px)">
+    <div style="position:absolute;inset:0;background:linear-gradient(rgba(248,244,240,.1),transparent 30%,rgba(248,244,240,.95))"></div>
+    <div style="position:absolute;top:52px;left:16px;display:flex;justify-content:space-between;right:16px">
+      <div onClick="{{ back }}" style="width:40px;height:40px;border-radius:50%;background:rgba(248,244,240,.85);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-arrow-left" style="font-size:20px;color:#fff"></i></div>
+      <div onClick="{{ toggleCurSaved }}" style="width:40px;height:40px;border-radius:50%;background:rgba(248,244,240,.85);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="{{ curHeartCls }}" style="font-size:20px;color:#C46464"></i></div>
+    </div>
+    <div style="position:absolute;top:14px;left:16px;font-family:'SF Mono',ui-monospace,monospace;font-size:10px;color:rgba(236,226,216,.45)">portfolio cover</div>
+  </div>
+  <div style="padding:0 22px;margin-top:-46px;position:relative">
+    <div style="{{ curBigAvatar }}">{{ cur.initials }}</div>
+    <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <div style="font-family:Spectral,serif;font-size:26px;font-weight:600;line-height:1.1">{{ cur.name }}</div>
+        <div style="font-size:13px;color:#AB9080">@{{ cur.handle }}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;color:#C07858;font-weight:700;font-size:14px;margin-top:4px"><i class="ph-fill ph-star" style="font-size:14px"></i>{{ cur.rating }} <span style="color:#AB9080;font-weight:500">({{ cur.reviews }})</span></div>
+    </div>
+    <div style="font-size:14.5px;color:#5A3828;margin-top:8px">{{ cur.specialty }}</div>
+    <div style="display:flex;align-items:center;gap:6px;color:#8A6050;font-size:13px;margin-top:6px"><i class="ph-light ph-map-pin" style="font-size:15px"></i>{{ cur.distLabel }} · {{ cur.loc }}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
+      <sc-for list="{{ cur.tags }}" as="t" hint-placeholder-count="4">
+        <div style="padding:6px 12px;border-radius:999px;background:rgba(192,120,88,.08);border:1px solid rgba(192,120,88,.25);font-size:12px;font-weight:600;color:#7A5040">{{ t }}</div>
+      </sc-for>
+    </div>
+    <div style="display:flex;gap:11px;margin-top:18px">
+      <div onClick="{{ bookCur }}" style="flex:1;padding:15px;border-radius:14px;background:#C07858;color:#F8F4F0;font-weight:800;font-size:15px;text-align:center;cursor:pointer">Book now</div>
+      <div onClick="{{ messageCur }}" style="flex:1;padding:15px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(44,24,16,0.12);color:#2C1810;font-weight:700;font-size:15px;text-align:center;cursor:pointer">Message</div>
+    </div>
+    <div style="font-size:14.5px;color:#7A5040;line-height:1.6;margin-top:20px">{{ cur.bio }}</div>
+
+    <div style="font-family:Spectral,serif;font-size:19px;font-weight:600;margin:24px 0 12px">Services</div>
+    <sc-for list="{{ curServices }}" as="sv" hint-placeholder-count="3">
+      <div onClick="{{ sv.onClick }}" style="display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:14px;background:rgba(255,255,255,0.75);border:1px solid rgba(44,24,16,0.08);margin-bottom:9px;cursor:pointer">
+        <div style="flex:1"><div style="font-size:15px;font-weight:700;color:#2C1810">{{ sv.name }}</div><div style="font-size:12.5px;color:#AB9080;margin-top:2px">{{ sv.dur }}</div></div>
+        <div style="font-family:Spectral,serif;font-size:17px;color:#C07858">{{ sv.price }}</div>
+        <i class="ph-light ph-caret-right" style="font-size:16px;color:#AB9080"></i>
+      </div>
+    </sc-for>
+
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin:24px 0 12px">
+      <div style="font-family:Spectral,serif;font-size:19px;font-weight:600">Portfolio</div>
+      <div onClick="{{ bookCur }}" style="font-size:12.5px;color:#C07858;font-weight:700">View availability →</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+      <sc-for list="{{ curPortfolio }}" as="p" hint-placeholder-count="6">
+        <div style="position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:repeating-linear-gradient(135deg,#EBE5DF 0 9px,#E6E0DA 9px 18px)">
+          <div style="position:absolute;left:6px;bottom:5px;right:6px;font-family:'SF Mono',ui-monospace,monospace;font-size:8.5px;color:rgba(236,226,216,.55);line-height:1.2">{{ p }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ════════ BOOKING ════════ -->
+<sc-if value="{{ isBooking }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column">
+  <div style="display:flex;align-items:center;gap:12px;padding:52px 16px 12px">
+    <div onClick="{{ back }}" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-arrow-left" style="font-size:22px;color:#2C1810"></i></div>
+    <div style="font-family:Spectral,serif;font-size:20px;font-weight:600">Book with {{ bEstiName }}</div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:8px 22px 12px">
+    <div style="font-size:12px;color:#8A6050;font-weight:700;letter-spacing:.4px;margin-bottom:10px">SERVICE</div>
+    <sc-for list="{{ bServices }}" as="sv" hint-placeholder-count="3">
+      <div onClick="{{ sv.onClick }}" style="{{ sv.style }}">
+        <div style="flex:1"><div style="font-size:14.5px;font-weight:700">{{ sv.name }}</div><div style="font-size:12px;color:#AB9080;margin-top:2px">{{ sv.dur }}</div></div>
+        <div style="font-family:Spectral,serif;font-size:16px;color:#C07858">{{ sv.price }}</div>
+        <i class="{{ sv.check }}" style="font-size:20px;color:#C07858;margin-left:10px"></i>
+      </div>
+    </sc-for>
+    <div style="font-size:12px;color:#8A6050;font-weight:700;letter-spacing:.4px;margin:22px 0 10px">PICK A DAY</div>
+    <div style="display:flex;gap:9px;overflow-x:auto;padding-bottom:4px">
+      <sc-for list="{{ bDays }}" as="d" hint-placeholder-count="7">
+        <div onClick="{{ d.onClick }}" style="{{ d.style }}">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.5px;opacity:.8">{{ d.dow }}</div>
+          <div style="font-family:Spectral,serif;font-size:20px;margin-top:3px">{{ d.dom }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-size:12px;color:#8A6050;font-weight:700;letter-spacing:.4px;margin:22px 0 10px">AVAILABLE TIMES</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px">
+      <sc-for list="{{ bTimes }}" as="t" hint-placeholder-count="6">
+        <div onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.t }}</div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="padding:12px 22px 30px;border-top:1px solid rgba(44,24,16,0.09)">
+    <div onClick="{{ confirmBooking }}" style="{{ confirmStyle }}">{{ confirmLabel }}</div>
+  </div>
+  <sc-if value="{{ bookingConfirmed }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;inset:0;background:rgba(248,244,240,.94);backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px;animation:auraScrim .25s ease">
+      <div style="width:92px;height:92px;border-radius:50%;background:rgba(90,154,114,.12);display:flex;align-items:center;justify-content:center;animation:auraPop .4s ease;border:1px solid rgba(90,154,114,.32)"><i class="ph-fill ph-thumbs-up" style="font-size:46px;color:#5A9A72"></i></div>
+      <div style="font-family:Spectral,serif;font-size:26px;margin-top:20px">You're booked</div>
+      <div style="font-size:14px;color:#7A5040;margin-top:10px;line-height:1.6;max-width:280px">{{ confirmSummary }}</div>
+      <div style="font-size:13px;color:#AB9080;margin-top:8px">A confirmation is waiting in your messages.</div>
+      <div onClick="{{ afterBooking }}" style="margin-top:26px;padding:14px 30px;border-radius:14px;background:#C07858;color:#F8F4F0;font-weight:800;font-size:15px;cursor:pointer">Done</div>
+    </div>
+  </sc-if>
+</div>
+</sc-if>
+
+<!-- ════════ PROFILE (OWN) ════════ -->
+<sc-if value="{{ isProfile }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;overflow-y:auto;padding-bottom:108px">
+  <div style="position:relative;height:170px;background:repeating-linear-gradient(135deg,#EBE5DF 0 13px,#E6E0DA 13px 26px)">
+    <div style="position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(248,244,240,.95))"></div>
+    <div style="position:absolute;top:52px;right:16px;display:flex;gap:10px">
+      <div onClick="{{ openEdit }}" style="padding:9px 16px;border-radius:999px;background:rgba(248,244,240,.85);backdrop-filter:blur(6px);font-size:13px;font-weight:700;color:#fff;cursor:pointer">Edit</div>
+      <div onClick="{{ openCal }}" style="width:38px;height:38px;border-radius:50%;background:rgba(248,244,240,.85);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-calendar-blank" style="font-size:18px;color:#fff"></i></div>
+    </div>
+  </div>
+  <div style="padding:0 22px;margin-top:-44px;position:relative">
+    <div style="width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#D4A088,#C07858);display:flex;align-items:center;justify-content:center;font-family:Spectral,serif;font-size:34px;color:#F8F4F0;border:4px solid #F8F4F0">LV</div>
+    <div style="font-family:Spectral,serif;font-size:25px;font-weight:600;margin-top:12px">Luna Vale</div>
+    <div style="font-size:13px;color:#AB9080">@lunavale</div>
+    <div style="display:flex;gap:26px;margin-top:16px">
+      <div><div style="font-family:Spectral,serif;font-size:20px;color:#2C1810">{{ pfPortfolioCount }}</div><div style="font-size:11.5px;color:#AB9080">posts</div></div>
+      <div><div style="font-family:Spectral,serif;font-size:20px;color:#2C1810">312</div><div style="font-size:11.5px;color:#AB9080">booked</div></div>
+      <div><div style="font-family:Spectral,serif;font-size:20px;color:#C07858">4.9</div><div style="font-size:11.5px;color:#AB9080">rating</div></div>
+    </div>
+    <div style="font-size:14.5px;color:#5A3828;margin-top:8px">{{ pfSpecialty }}</div>
+    <div style="font-size:14px;color:#7A5040;line-height:1.6;margin-top:10px">{{ pfBio }}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
+      <sc-for list="{{ pfTags }}" as="t" hint-placeholder-count="4">
+        <div style="padding:6px 12px;border-radius:999px;background:rgba(192,120,88,.09);border:1px solid rgba(192,120,88,.28);font-size:12px;font-weight:600;color:#C07858">{{ t }}</div>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin-top:18px;padding:14px;border-radius:14px;background:rgba(90,154,114,.08);border:1px solid rgba(90,154,114,.18)">
+      <i class="ph-fill ph-circle" style="font-size:11px;color:#5A9A72"></i>
+      <div style="flex:1;font-size:13.5px;color:#3A7A58"><b style="color:#2C1810">Booking is open</b> · 4 slots free this week</div>
+      <div style="width:42px;height:24px;border-radius:999px;background:#5A9A72;position:relative"><div style="position:absolute;top:2px;right:2px;width:20px;height:20px;border-radius:50%;background:#fff"></div></div>
+    </div>
+    <div style="font-family:Spectral,serif;font-size:19px;font-weight:600;margin:24px 0 12px">Your portfolio</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+      <div style="aspect-ratio:1;border-radius:10px;border:1px dashed rgba(192,120,88,.28);display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-plus" style="font-size:24px;color:#C07858"></i></div>
+      <sc-for list="{{ pfPortfolio }}" as="p" hint-placeholder-count="6">
+        <div style="position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:repeating-linear-gradient(135deg,#EBE5DF 0 9px,#E6E0DA 9px 18px)">
+          <div style="position:absolute;left:6px;bottom:5px;right:6px;font-family:'SF Mono',ui-monospace,monospace;font-size:8.5px;color:rgba(236,226,216,.55);line-height:1.2">{{ p }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ════════ EDIT PROFILE ════════ -->
+<sc-if value="{{ isEdit }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:52px 18px 12px">
+    <div onClick="{{ back }}" style="font-size:15px;color:#8A6050;cursor:pointer">Cancel</div>
+    <div style="font-family:Spectral,serif;font-size:19px;font-weight:600">Edit studio</div>
+    <div onClick="{{ saveProfile }}" style="font-size:15px;color:#C07858;font-weight:800;cursor:pointer">Save</div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:8px 22px 30px">
+    <div style="font-size:12px;color:#8A6050;font-weight:700;margin-bottom:6px">SPECIALTY</div>
+    <input value="{{ pfSpecialty }}" onChange="{{ editSpecialty }}" style="width:100%;padding:14px 16px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(44,24,16,0.09);font-size:15px;color:#2C1810;font-family:Mulish;outline:none;margin-bottom:18px" />
+    <div style="font-size:12px;color:#8A6050;font-weight:700;margin-bottom:6px">YOUR BIO</div>
+    <textarea onChange="{{ editBio }}" value="{{ pfBio }}" rows="4" style="width:100%;padding:14px 16px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(44,24,16,0.09);font-size:14.5px;color:#2C1810;font-family:Mulish;outline:none;resize:none;line-height:1.5;margin-bottom:18px">{{ pfBio }}</textarea>
+    <div style="font-size:12px;color:#8A6050;font-weight:700;margin-bottom:8px">WHAT YOU OFFER &amp; WELCOME</div>
+    <div style="display:flex;flex-wrap:wrap;gap:9px">
+      <sc-for list="{{ profileTagChips }}" as="c" hint-placeholder-count="6">
+        <div onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ════════ ESTI CALENDAR ════════ -->
+<sc-if value="{{ isEstiCal }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;background:#F8F4F0">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:52px 16px 8px;flex-shrink:0">
+    <div onClick="{{ back }}" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-arrow-left" style="font-size:22px;color:#2C1810"></i></div>
+    <div style="font-family:Spectral,serif;font-size:20px;font-weight:600">My Schedule</div>
+    <div onClick="{{ calAddNew }}" style="width:40px;height:40px;border-radius:50%;background:rgba(192,120,88,.11);display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-plus" style="font-size:20px;color:#C07858"></i></div>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 20px 8px;flex-shrink:0">
+    <div onClick="{{ calPrevWeek }}" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-caret-left" style="font-size:18px;color:#AB9080"></i></div>
+    <div style="font-family:Spectral,serif;font-size:14px;color:#C07858;font-weight:600">{{ calWeekLabel }}</div>
+    <div onClick="{{ calNextWeek }}" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-caret-right" style="font-size:18px;color:#AB9080"></i></div>
+  </div>
+  <div style="flex:1;overflow:hidden">{{ calGrid }}</div>
+  <sc-if value="{{ calApptOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;z-index:20">
+    <div onClick="{{ closeCalSheet }}" style="position:absolute;inset:0;background:rgba(44,24,16,.25);backdrop-filter:blur(4px)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,#FFFFFF,#FAF6F2);border-radius:22px 22px 0 0;padding:22px 22px 36px;animation:auraFade .2s ease">
+      <div style="width:36px;height:4px;border-radius:2px;background:rgba(236,226,216,0.18);margin:0 auto 18px"></div>
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
+        <div style="{{ calApptAvatarStyle }}">{{ calApptInitials }}</div>
+        <div>
+          <div style="font-family:Spectral,serif;font-size:19px;font-weight:600">{{ calApptName }}</div>
+          <div style="font-size:13px;color:#8A6050;margin-top:2px">{{ calApptService }}</div>
+          <div style="font-size:12px;color:#C07858;margin-top:3px">{{ calApptTimeLabel }}</div>
+        </div>
+      </div>
+      <div onClick="{{ sendReminder }}" style="{{ reminderBtnStyle }}">
+        <i class="{{ reminderBtnIcon }}" style="font-size:18px"></i>
+        <span>{{ reminderBtnLabel }}</span>
+      </div>
+      <div style="font-size:11.5px;color:#C0A890;text-align:center;margin-top:11px;line-height:1.5">Drag block to move · Drag ▬ handle at bottom to resize</div>
+      <div onClick="{{ msgCalClient }}" style="margin-top:10px;display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(44,24,16,0.09);cursor:pointer;font-size:14px;font-weight:700;color:#2C1810">
+        <i class="ph-light ph-chat-circle" style="font-size:18px"></i>
+        <span>Message client</span>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+  <sc-if value="{{ calAddOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;inset:0;z-index:20">
+    <div onClick="{{ closeCalSheet }}" style="position:absolute;inset:0;background:rgba(44,24,16,.25);backdrop-filter:blur(4px)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,#FFFFFF,#FAF6F2);border-radius:22px 22px 0 0;padding:22px 22px 36px;animation:auraFade .2s ease">
+      <div style="width:36px;height:4px;border-radius:2px;background:rgba(236,226,216,0.18);margin:0 auto 18px"></div>
+      <div style="font-family:Spectral,serif;font-size:19px;font-weight:600;margin-bottom:4px">{{ calAddTitle }}</div>
+      <div style="font-size:13px;color:#8A6050;margin-bottom:18px">{{ calAddSubtitle }}</div>
+      <div onClick="{{ calBlockAvail }}" style="display:flex;align-items:center;gap:12px;padding:15px 16px;border-radius:14px;background:rgba(90,154,114,.08);border:1px solid rgba(90,154,114,.20);cursor:pointer;margin-bottom:10px">
+        <i class="ph-light ph-lock-open" style="font-size:20px;color:#5A9A72"></i>
+        <div><div style="font-size:14px;font-weight:700;color:#2C1810">Mark as available</div><div style="font-size:12px;color:#8A6050;margin-top:2px">Clients can see and book this slot</div></div>
+      </div>
+      <div onClick="{{ calBlockTime }}" style="display:flex;align-items:center;gap:12px;padding:15px 16px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(44,24,16,0.09);cursor:pointer">
+        <i class="ph-light ph-lock" style="font-size:20px;color:#AB9080"></i>
+        <div><div style="font-size:14px;font-weight:700;color:#2C1810">Block off time</div><div style="font-size:12px;color:#8A6050;margin-top:2px">Personal hold or break</div></div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+  <sc-if value="{{ calToastVisible }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;left:18px;right:18px;bottom:30px;z-index:30;background:#E4F0EA;border:1px solid rgba(90,154,114,.32);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;animation:auraFade .2s ease;box-shadow:0 4px 16px rgba(44,24,16,.14)">
+    <i class="ph-fill ph-bell-ringing" style="font-size:20px;color:#5A9A72"></i>
+    <span style="font-size:13.5px;color:#3A7A58;font-weight:600">{{ calToastMsg }}</span>
+  </div>
+  </sc-if>
+</div>
+</sc-if>
+
+<!-- ════════ JOURNAL ════════ -->
+<sc-if value="{{ isJournal }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;background:radial-gradient(120% 60% at 80% 0%,#EDE8E2,#F8F4F0 60%)">
+  <div style="display:flex;align-items:center;gap:12px;padding:52px 16px 8px">
+    <div onClick="{{ back }}" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="ph-light ph-x" style="font-size:22px;color:#2C1810"></i></div>
+    <div><div style="font-family:Spectral,serif;font-size:20px;font-weight:600" data-comment-anchor="97f8a98624-div">Skin journal</div><div style="font-size:12px;color:#AB9080">{{ todayLabel }}</div></div>
+    <i class="ph-light ph-moon-stars" style="margin-left:auto;font-size:24px;color:#C07858"></i>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:14px 22px 12px">
+    <div style="font-family:Spectral,serif;font-size:22px;font-weight:500;font-style:italic;color:#e7dcd3;line-height:1.3">How's your skin<br>feeling today?</div>
+    <div style="display:flex;gap:9px;margin-top:16px;overflow-x:auto;padding-bottom:4px">
+      <sc-for list="{{ moods }}" as="m" hint-placeholder-count="5">
+        <div onClick="{{ m.onClick }}" style="{{ m.style }}">
+          <i class="{{ m.icon }}" style="font-size:26px"></i>
+          <div style="font-size:12px;font-weight:600;margin-top:6px">{{ m.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-family:Spectral,serif;font-size:18px;font-weight:600;margin:26px 0 12px">Today's ritual</div>
+    <div style="display:flex;flex-wrap:wrap;gap:9px">
+      <sc-for list="{{ steps }}" as="st" hint-placeholder-count="6">
+        <div onClick="{{ st.onClick }}" style="{{ st.style }}"><i class="{{ st.check }}" style="font-size:16px"></i>{{ st.label }}</div>
+      </sc-for>
+    </div>
+    <div style="font-family:Spectral,serif;font-size:18px;font-weight:600;margin:26px 0 10px">Notes</div>
+    <textarea onChange="{{ setNote }}" value="{{ journalNote }}" rows="4" placeholder="Breakouts, products, how you slept, what your skin needs…" style="width:100%;padding:14px 16px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(44,24,16,0.09);font-size:14.5px;color:#2C1810;font-family:Mulish;outline:none;resize:none;line-height:1.5">{{ journalNote }}</textarea>
+  </div>
+  <div style="padding:12px 22px 30px">
+    <div onClick="{{ saveJournal }}" style="width:100%;padding:16px;border-radius:15px;background:#C07858;color:#F8F4F0;font-weight:800;font-size:15px;text-align:center;cursor:pointer">Save today's entry</div>
+  </div>
+  <sc-if value="{{ journalSaved }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;inset:0;background:rgba(248,244,240,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;animation:auraScrim .25s ease">
+      <i class="ph-light ph-moon-stars" style="font-size:54px;color:#C07858;animation:auraPop .4s ease"></i>
+      <div style="font-family:Spectral,serif;font-size:22px;margin-top:16px">Logged for today</div>
+    </div>
+  </sc-if>
+</div>
+</sc-if>
+
+<!-- ════════ HAMBURGER DRAWER ════════ -->
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;z-index:60">
+  <div onClick="{{ closeMenu }}" style="position:absolute;inset:0;background:rgba(44,24,16,.22);animation:auraScrim .2s ease"></div>
+  <div style="position:absolute;top:0;bottom:0;left:0;width:80%;max-width:320px;background:linear-gradient(160deg,#F2ECE6,#F7F2EC);box-shadow:0 2px 24px rgba(44,24,16,.10);animation:auraDrawer .26s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;padding:60px 0 30px">
+    <div style="padding:0 26px 22px;display:flex;align-items:center;gap:13px;border-bottom:1px solid rgba(44,24,16,0.07)">
+      <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#D4A088,#C07858);display:flex;align-items:center;justify-content:center;font-family:Spectral,serif;font-size:22px;color:#F8F4F0">LV</div>
+      <div><div style="font-family:Spectral,serif;font-size:19px;font-weight:600">Luna Vale</div><div style="font-size:12px;color:#AB9080">@lunavale</div></div>
+    </div>
+    <div style="padding:14px 0;flex:1">
+      <sc-for list="{{ menuLinks }}" as="l" hint-placeholder-count="5">
+        <div onClick="{{ l.onClick }}" style="display:flex;align-items:center;gap:15px;padding:15px 26px;cursor:pointer">
+          <i class="{{ l.icon }}" style="font-size:23px;color:#C07858;width:26px"></i>
+          <span style="font-size:16px;color:#2C1810;font-weight:500">{{ l.label }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div style="padding:18px 26px 0;border-top:1px solid rgba(44,24,16,0.09);display:flex;align-items:center;gap:10px;color:#AB9080">
+      <i class="ph-light ph-moon-stars" style="font-size:18px;color:#AB8070"></i>
+      <span style="font-size:12px;font-style:italic;font-family:Spectral,serif">Snow Lotus · for every skincare journey</span>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<!-- ════════ BOTTOM NAV ════════ -->
+<sc-if value="{{ showNav }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;left:0;right:0;bottom:0;z-index:40;padding:9px 14px 24px;background:linear-gradient(rgba(248,244,240,0),rgba(248,244,240,.97) 28%);backdrop-filter:blur(12px);border-top:1px solid rgba(236,226,216,0.07)">
+  <div style="display:flex;align-items:center">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
+      <div onClick="{{ n.onClick }}" style="{{ n.style }}">
+        <i class="{{ n.iconCls }}" style="font-size:23px"></i>
+        <span style="{{ n.labelStyle }}">{{ n.label }}</span>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+</div>
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:470,&quot;height&quot;:910},&quot;startScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Splash&quot;,&quot;Explore&quot;,&quot;Profile&quot;,&quot;Messages&quot;],&quot;default&quot;:&quot;Splash&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;reduceMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.C = { text:'#2C1810', dim:'#8A6050', faint:'#AB9080', taupe:'#C07858', purple:'#D4C0B8', tan:'#C07858', heart:'#C46464' };
+    this.cardRef = React.createRef();
+    this.skipCue = React.createRef();
+    this.likeCue = React.createRef();
+    this.saveCue = React.createRef();
+    this.drag = null; this.animating = false;
+    const av = (bg) => bg;
+    this.E = {
+      luna: { id:'luna', name:'Luna Vale', handle:'lunavale', initials:'LV', accent:'#C07858', specialty:'Holistic facials & gua sha', loc:'Portland, OR', distLabel:'You', rating:4.9, reviews:188,
+        tags:['LGBTQ+ Friendly','Facials','Holistic','Acne'],
+        bio:'Holistic facials, gua sha, and quiet rituals for your skin. Booking by appointment in a candlelit SE studio. Come exhale.',
+        services:[{name:'Signature Glow Facial',dur:'75 min',price:'$120'},{name:'Gua Sha Ritual',dur:'45 min',price:'$80'},{name:'Holistic Deep Cleanse',dur:'60 min',price:'$95'},{name:'Dermaplaning',dur:'45 min',price:'$70'}],
+        portfolio:['signature glow','gua sha ritual','before / after','deep cleanse','candlelit studio','dermaplane','product shelf','texture detail','client glow'] },
+      sage: { id:'sage', name:'Sage Moreau', handle:'sagemoreau', initials:'SM', accent:'#D4A8A0', specialty:'Brow lamination & tint', loc:'Portland, OR', distLabel:'2 mi away', rating:4.9, reviews:214,
+        tags:['Brows','Lashes','LGBTQ+ Friendly','Holistic'],
+        bio:'Soft, full brows shaped with a slow, sensory ritual. Queer-owned studio tucked into SE Portland — come exactly as you are. I take time, I never rush a face.',
+        services:[{name:'Brow Lamination',dur:'60 min',price:'$85'},{name:'Brow + Tint',dur:'45 min',price:'$60'},{name:'Lash Lift',dur:'50 min',price:'$75'}],
+        portfolio:['brow lamination','before / after','tint & shape','studio corner','brow mapping','soft glam'] },
+      juniper: { id:'juniper', name:'Juniper Cross', handle:'junipercross', initials:'JC', accent:'#D4A088', specialty:'Acne & corrective facials', loc:'Portland, OR', distLabel:'4 mi away', rating:4.8, reviews:167,
+        tags:['Acne','Facials','Holistic','High Frequency'],
+        bio:'Corrective, no-nonsense skin coaching with a gentle hand. I treat acne like a journey, not a flaw — we build a plan and we go slow.',
+        services:[{name:'Acne Deep Dive',dur:'75 min',price:'$120'},{name:'Signature Facial',dur:'60 min',price:'$95'},{name:'Dermaplaning',dur:'45 min',price:'$70'}],
+        portfolio:['acne progress','deep cleanse','before / after','dermaplane','product shelf','calm room'] },
+      wren: { id:'wren', name:'Wren Ashby', handle:'wrenashby', initials:'WA', accent:'#C07858', specialty:'Lash extensions & lifts', loc:'Portland, OR', distLabel:'3 mi away', rating:5.0, reviews:98,
+        tags:['Lashes','Anime Lashes','LGBTQ+ Friendly'],
+        bio:'Lash sets for the dramatic and the delicate alike. Dark, cozy studio, good playlists, all identities celebrated. Nap if you want — most do.',
+        services:[{name:'Volume Set',dur:'120 min',price:'$160'},{name:'Classic Set',dur:'90 min',price:'$120'},{name:'Lash Fill',dur:'60 min',price:'$70'}],
+        portfolio:['volume set','lash mapping','before / after','classic set','studio','close up'] },
+      opal: { id:'opal', name:'Opal Reyes', handle:'opalreyes', initials:'OR', accent:'#D4A8A0', specialty:'Dermaplaning & glow facials', loc:'Portland, OR', distLabel:'6 mi away', rating:4.9, reviews:142,
+        tags:['Facials','Holistic','Microdermabrasion'],
+        bio:'Luminous skin through ritual. Gua sha, dermaplaning, and a whole lot of calm. You will leave dewy and a little sleepy.',
+        services:[{name:'Glow Facial',dur:'60 min',price:'$110'},{name:'Gua Sha Ritual',dur:'45 min',price:'$80'},{name:'Dermaplaning',dur:'45 min',price:'$70'}],
+        portfolio:['glow facial','gua sha','before / after','dermaplane','ritual tray','dewy skin'] },
+      marisol: { id:'marisol', name:'Marisol Vega', handle:'marisolvega', initials:'MV', accent:'#D4A088', specialty:'Brows & tinting', loc:'Portland, OR', distLabel:'5 mi away', rating:4.7, reviews:76,
+        tags:['Brows','Waxing'],
+        bio:'Bold brows, clean lines, good music. Walk-ins welcome on Sundays. I love a dramatic arch but I will always honor your face.',
+        services:[{name:'Brow Shaping',dur:'30 min',price:'$45'},{name:'Brow + Tint',dur:'45 min',price:'$60'}],
+        portfolio:['bold brows','before / after','tint','shaping','studio','client'] }
+    };
+    this.deckOrder = ['sage','juniper','wren','opal','marisol'];
+    this.estiAll = this.deckOrder.map(id=>this.E[id]);
+    this.interestList = ['LGBTQ+ Friendly','Acne','Brows','Lashes','Facials','Holistic','Sensory Friendly','Dermaplaning','Gua Sha','Microdermabrasion','Waxing','Anime Lashes','Brazilian','Male Brazilian','Galvanic','High Frequency'];
+    const startMap = { Splash:{screen:'splash'}, Explore:{screen:'explore',activeTab:'explore'}, Profile:{screen:'profile',activeTab:'profile'}, Messages:{screen:'messages',activeTab:'messages'} };
+    this.state = {
+      screen:'splash', activeTab:'explore', menuOpen:false, _hist:[],
+      deckIndex:0, saved:['juniper'], selectedEsti:'sage', role:null,
+      interests:[], distance:15, locText:'Portland, OR', query:'', activeThread:null,
+      threads:{ sage:[{from:'them',text:'Hi! Thanks for reaching out. What were you hoping to book?'},{from:'me',text:'Hi Sage! I love your lamination work — do you have weekend openings?'},{from:'them',text:'I do! This Saturday or next. Want me to hold a 2pm for you?'}],
+                opal:[{from:'them',text:'So glad you found me. Your skin is going to love the gua sha ritual.'}] },
+      drafts:{},
+      booking:{ service:0, day:1, time:null, confirmed:false }, bookingEsti:'sage',
+      journal:{ mood:null, steps:[], note:'' }, journalSaved:false,
+      profileSpecialty:'Holistic facials & gua sha',
+      profileBio:'Holistic facials, gua sha, and quiet rituals for your skin. Booking by appointment in a candlelit SE studio. Come exhale.',
+      profileTags:['LGBTQ+ Friendly','Facials','Holistic','Acne'],
+      calWeekOffset:0,
+      calAppts:[
+        {id:'ca1',name:'Mia Torres',initials:'MT',service:'Signature Glow Facial',day:1,slot:2,dur:3,color:'#C07858'},
+        {id:'ca2',name:'Jordan Bell',initials:'JB',service:'Gua Sha Ritual',day:1,slot:8,dur:2,color:'#AB8070'},
+        {id:'ca3',name:'Casey Liu',initials:'CL',service:'Dermaplaning',day:2,slot:4,dur:2,color:'#5A9A72'},
+        {id:'ca4',name:'Riley Shaw',initials:'RS',service:'Holistic Deep Cleanse',day:3,slot:1,dur:3,color:'#C46464'},
+        {id:'ca5',name:'Sam Park',initials:'SP',service:'Glow Facial',day:4,slot:10,dur:2,color:'#C07858'},
+      ],
+      calSelectedId:null, calSheet:null, calAddDay:null, calAddSlot:null, calToast:null, calDrag:null,
+      ...(startMap[props.startScreen]||{})
+    };
+  }
+
+  nav(screen, extra){ this.setState(s=>({ screen, _hist:[...s._hist, s.screen], menuOpen:false, ...(extra||{}) })); }
+  back(){ this.setState(s=>{ const h=[...s._hist]; const prev=h.pop(); return { screen: prev||s.activeTab, _hist:h, menuOpen:false }; }); }
+  openTab(key){ this.setState({ screen:key, activeTab:key, menuOpen:false, _hist:[] }); }
+  toggleMenu(){ this.setState(s=>({menuOpen:!s.menuOpen})); }
+  closeMenu(){ this.setState({menuOpen:false}); }
+  openJournal(){ this.nav('journal',{journalSaved:false}); }
+  openEsti(id){ this.nav('estiProfile',{selectedEsti:id}); }
+  openEdit(){ this.nav('edit'); }
+
+  goRole(){ this.nav('role'); }
+  chooseClient(){ this.setState({role:'client'}); this.nav('interests'); }
+  chooseEsti(){ this.setState({role:'esti'}); this.nav('setup'); }
+  goLocation(){ if(this.state.interests.length>=3) this.nav('location'); }
+  finishOnboard(){ this.openTab('explore'); }
+  finishSetup(){ this.openTab('profile'); }
+  toggleInterest(t){ this.setState(s=>({ interests: s.interests.includes(t)? s.interests.filter(x=>x!==t) : (s.interests.length>=5? s.interests : [...s.interests,t]) })); }
+  setLoc(e){ this.setState({locText:e.target.value}); }
+  setDistance(e){ this.setState({distance:Number(e.target.value)}); }
+
+  toggleSaved(id){ this.setState(s=>({ saved: s.saved.includes(id)? s.saved.filter(x=>x!==id) : [...s.saved,id] })); }
+  setQuery(e){ this.setState({query:e.target.value}); }
+  runSuggested(t){ this.setState({query:t}); }
+
+  openThreadWith(id){ this.setState(s=>{ const threads={...s.threads}; if(!threads[id]) threads[id]=[]; return { threads, activeThread:id, screen:'thread', menuOpen:false, _hist:[...s._hist, s.screen] }; }); }
+  setDraft(e){ const v=e.target.value, id=this.state.activeThread; this.setState(s=>({drafts:{...s.drafts,[id]:v}})); }
+  sendMsg(){ const id=this.state.activeThread; const txt=((this.state.drafts[id]||'')+'').trim(); if(!txt) return;
+    this.setState(s=>{ const threads={...s.threads}; threads[id]=[...(threads[id]||[]),{from:'me',text:txt}]; return { threads, drafts:{...s.drafts,[id]:''} }; });
+    setTimeout(()=>{ this.setState(s=>{ if(s.activeThread!==id) return null; const threads={...s.threads}; threads[id]=[...(threads[id]||[]),{from:'them',text:'Love that — let me check my calendar and send you a couple of times.'}]; return {threads}; }); }, 1500);
+  }
+
+  bookCur(){ const id=this.state.selectedEsti; this.nav('booking',{ bookingEsti:id, booking:{service:0,day:1,time:null,confirmed:false} }); }
+  messageCur(){ this.openThreadWith(this.state.selectedEsti); }
+  selectService(i){ this.setState(s=>({booking:{...s.booking,service:i}})); }
+  selectDay(i){ this.setState(s=>({booking:{...s.booking,day:i,time:null}})); }
+  selectTime(t){ this.setState(s=>({booking:{...s.booking,time:t}})); }
+  confirmBooking(){ if(this.state.booking.time==null) return; this.setState(s=>({booking:{...s.booking,confirmed:true}})); }
+  afterBooking(){ this.openTab('messages'); }
+
+  setMood(m){ this.setState(s=>({journal:{...s.journal,mood:m}})); }
+  toggleStep(st){ this.setState(s=>({journal:{...s.journal, steps: s.journal.steps.includes(st)? s.journal.steps.filter(x=>x!==st):[...s.journal.steps,st]}})); }
+  setNote(e){ const v=e.target.value; this.setState(s=>({journal:{...s.journal,note:v}})); }
+  saveJournal(){ this.setState({journalSaved:true}); setTimeout(()=>{ this.setState({journalSaved:false}); this.back(); }, 1300); }
+
+  editSpecialty(e){ this.setState({profileSpecialty:e.target.value}); }
+  editBio(e){ this.setState({profileBio:e.target.value}); }
+  toggleProfileTag(t){ this.setState(s=>({ profileTags: s.profileTags.includes(t)? s.profileTags.filter(x=>x!==t):[...s.profileTags,t] })); }
+  saveProfile(){ this.back(); }
+
+  // ── calendar ──
+  getWeekDates(offset){ const base=new Date(2026,5,22); base.setDate(base.getDate()+(offset||0)*7); return Array.from({length:7},(_,i)=>{ const d=new Date(base); d.setDate(base.getDate()+i); return d; }); }
+  openCal(){ this.nav('estiCal'); }
+  calPrevWeek(){ this.setState(s=>({calWeekOffset:s.calWeekOffset-1})); }
+  calNextWeek(){ this.setState(s=>({calWeekOffset:s.calWeekOffset+1})); }
+  calTapAppt(id){ this.setState({calSelectedId:id,calSheet:'appt'}); }
+  calTapEmpty(day,slot){ this.setState({calAddDay:day,calAddSlot:slot,calSheet:'add'}); }
+  closeCalSheet(){ this.setState({calSheet:null,calSelectedId:null}); }
+  calAddNew(){ this.setState({calSheet:'add',calAddDay:null,calAddSlot:null}); }
+  calBlockAvail(){ this.setState({calSheet:null,calToast:{msg:'Slot marked as available',id:null}}); setTimeout(()=>this.setState({calToast:null}),2500); }
+  calBlockTime(){ this.setState({calSheet:null,calToast:{msg:'Time blocked off',id:null}}); setTimeout(()=>this.setState({calToast:null}),2500); }
+  sendReminder(){ const id=this.state.calSelectedId; const a=this.state.calAppts.find(x=>x.id===id); if(!a) return; this.setState({calSheet:null,calSelectedId:null,calToast:{msg:'Reminder sent to '+a.name+'!',id}}); setTimeout(()=>this.setState({calToast:null}),3000); }
+  msgCalClient(){ this.closeCalSheet(); }
+  calDragStart(id,type,e){ e.stopPropagation(); const a=this.state.calAppts.find(x=>x.id===id); if(!a) return; this._didDrag=false; this.setState({calDrag:{id,type,startY:e.clientY,origSlot:a.slot,origDur:a.dur,currentSlot:a.slot,currentDur:a.dur},calSheet:null}); }
+  calDragMove(e){ if(!this.state.calDrag) return; const drag=this.state.calDrag,SLOT_H=50,SLOTS=20; const dy=e.clientY-drag.startY; if(Math.abs(dy)>8) this._didDrag=true; const ds=Math.round(dy/SLOT_H); if(drag.type==='move'){ const ns=Math.max(0,Math.min(SLOTS-drag.origDur,drag.origSlot+ds)); if(ns!==drag.currentSlot) this.setState(s=>({calDrag:{...s.calDrag,currentSlot:ns}})); } else { const nd=Math.max(1,Math.min(SLOTS-drag.origSlot,drag.origDur+ds)); if(nd!==drag.currentDur) this.setState(s=>({calDrag:{...s.calDrag,currentDur:nd}})); } }
+  calDragEnd(e){ if(!this.state.calDrag) return; const drag=this.state.calDrag,was=this._didDrag; this._didDrag=false; this.setState(s=>{ if(!was) return {calDrag:null}; const appts=s.calAppts.map(a=>{ if(a.id!==drag.id) return a; return drag.type==='move'?{...a,slot:drag.currentSlot}:{...a,dur:drag.currentDur}; }); return {calAppts:appts,calDrag:null}; }); }
+  buildCalGrid(weekDates,appts,drag){
+    const SLOT_H=50,SLOTS=20,TIME_W=36;
+    const today=new Date(2026,5,26);
+    const dayAbbr=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+    const slotLabel=(i)=>{ const mins=9*60+i*30,h=Math.floor(mins/60),m=mins%60; if(m!==0) return ''; const h12=h>12?h-12:(h===0?12:h); return h12+(h>=12?'pm':'am'); };
+    const getA=(a)=>{ if(!drag||drag.id!==a.id) return a; return drag.type==='move'?{...a,slot:drag.currentSlot}:{...a,dur:drag.currentDur}; };
+    const R=React.createElement;
+    return R('div',{style:{height:'100%',display:'flex',flexDirection:'column'},
+      onPointerMove:(e)=>{ if(this.state.calDrag) this.calDragMove(e); },
+      onPointerUp:(e)=>{ if(this.state.calDrag) this.calDragEnd(e); },
+      onPointerLeave:(e)=>{ if(this.state.calDrag) this.calDragEnd(e); }},
+      R('div',{style:{display:'flex',borderBottom:'1px solid rgba(236,226,216,0.10)',flexShrink:0,background:'#F8F4F0'}},
+        R('div',{style:{width:TIME_W,flexShrink:0}}),
+        ...weekDates.map((d,di)=>{
+          const isT=d.getDate()===today.getDate()&&d.getMonth()===today.getMonth()&&d.getFullYear()===today.getFullYear();
+          return R('div',{key:di,style:{flex:1,textAlign:'center',padding:'7px 1px 6px',borderLeft:'1px solid rgba(236,226,216,0.05)'}},
+            R('div',{style:{fontSize:8.5,color:'#AB9080',fontWeight:700,letterSpacing:.4}},dayAbbr[di]),
+            R('div',{style:{fontSize:13,fontFamily:'Spectral,serif',color:isT?'#cdab87':'#ece2d8',fontWeight:isT?700:400,lineHeight:1.3,marginTop:2}},d.getDate())
+          );
+        })
+      ),
+      R('div',{style:{flex:1,overflowY:'auto'}},
+        R('div',{style:{display:'flex',position:'relative',height:SLOTS*SLOT_H}},
+          R('div',{style:{width:TIME_W,flexShrink:0,position:'relative'}},
+            ...Array.from({length:SLOTS},(_,i)=>R('div',{key:i,style:{position:'absolute',top:i*SLOT_H-6,left:0,right:4,textAlign:'right',fontSize:8.5,color:'#AB9080',fontWeight:600}},slotLabel(i)))
+          ),
+          ...Array.from({length:7},(_,di)=>{
+            const dayAppts=appts.map(getA).filter(a=>a.day===di);
+            return R('div',{key:di,style:{flex:1,position:'relative',borderLeft:'1px solid rgba(236,226,216,0.05)'}},
+              ...Array.from({length:SLOTS},(_,i)=>R('div',{key:i,style:{position:'absolute',left:0,right:0,top:i*SLOT_H,height:1,background:i%2===0?'rgba(44,24,16,0.07)':'rgba(44,24,16,0.03)'}})),
+              ...Array.from({length:SLOTS},(_,i)=>R('div',{key:'t'+i,onClick:()=>this.calTapEmpty(di,i),style:{position:'absolute',left:0,right:0,top:i*SLOT_H,height:SLOT_H,zIndex:1,cursor:'pointer'}})),
+              ...dayAppts.map(a=>{
+                const isDrag=drag&&drag.id===a.id;
+                return R('div',{key:a.id,
+                  onPointerDown:(e)=>this.calDragStart(a.id,'move',e),
+                  onClick:(e)=>{e.stopPropagation();if(!this._didDrag)this.calTapAppt(a.id);},
+                  style:{position:'absolute',left:2,right:2,top:a.slot*SLOT_H+1,height:Math.max(a.dur*SLOT_H-2,18),borderRadius:8,overflow:'hidden',zIndex:isDrag?20:3,background:a.color+'cc',border:'1px solid '+a.color+'99',cursor:isDrag?'grabbing':'grab',boxShadow:isDrag?'0 4px 16px rgba(44,24,16,.14)':'none',userSelect:'none',touchAction:'none'}},
+                  R('div',{style:{padding:'4px 6px',height:'calc(100% - 10px)',display:'flex',flexDirection:'column',overflow:'hidden'}},
+                    R('div',{style:{fontSize:9,fontWeight:800,color:'#F8F4F0',lineHeight:1.2,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}},a.initials),
+                    a.dur>=2?R('div',{style:{fontSize:8,color:'rgba(42,34,48,0.8)',lineHeight:1.3,marginTop:1,overflow:'hidden'}},a.service.length>13?a.service.slice(0,13)+'…':a.service):null
+                  ),
+                  R('div',{onPointerDown:(e)=>this.calDragStart(a.id,'resize',e),style:{position:'absolute',left:0,right:0,bottom:0,height:13,cursor:'ns-resize',zIndex:2,display:'flex',alignItems:'center',justifyContent:'center'}},
+                    R('div',{style:{width:14,height:3,borderRadius:2,background:'rgba(42,34,48,0.4)'}})
+                  )
+                );
+              })
+            );
+          })
+        )
+      )
+    );
+  }
+
+  // ── swipe deck ──
+  resetCues(){ [this.skipCue,this.likeCue,this.saveCue].forEach(r=>{ if(r.current) r.current.style.opacity=0; }); }
+  onCardDown(e){ if(this.animating||!this.cardRef.current) return; try{ e.currentTarget.setPointerCapture(e.pointerId); }catch(_){} this.cardRef.current.style.transition='none'; this.drag={x:e.clientX,y:e.clientY}; }
+  onCardMove(e){ if(!this.drag||!this.cardRef.current) return; const dx=e.clientX-this.drag.x, dy=e.clientY-this.drag.y; this.cardRef.current.style.transform='translate('+dx+'px,'+dy+'px) rotate('+(dx*0.05)+'deg)';
+    const cl=(v)=>Math.max(0,Math.min(1,v));
+    if(this.likeCue.current) this.likeCue.current.style.opacity=cl(dx/110);
+    if(this.skipCue.current) this.skipCue.current.style.opacity=cl(-dx/110);
+    if(this.saveCue.current) this.saveCue.current.style.opacity=cl((-dy/110)-Math.abs(dx)/240);
+  }
+  onCardUp(e){ if(!this.drag||!this.cardRef.current) return; const dx=e.clientX-this.drag.x, dy=e.clientY-this.drag.y; this.drag=null; const TH=105;
+    if(dy<-TH && Math.abs(dx)<TH*1.4){ this.flyOut('up'); }
+    else if(dx>TH){ this.flyOut('right'); }
+    else if(dx<-TH){ this.flyOut('left'); }
+    else { const el=this.cardRef.current; el.style.transition='transform .32s cubic-bezier(.2,.8,.3,1)'; el.style.transform=''; this.resetCues(); }
+  }
+  flyOut(dir){ if(this.animating) return; const el=this.cardRef.current; const id=this.deckOrder[this.state.deckIndex];
+    const commit=()=>{ this.animating=false; this.resetCues();
+      if(dir==='up'&&id){ this.setState(s=>({ saved:s.saved.includes(id)?s.saved:[...s.saved,id], deckIndex:s.deckIndex+1 })); return; }
+      if(dir==='right'&&id){ this.nav('estiProfile',{selectedEsti:id, deckIndex:this.state.deckIndex+1}); return; }
+      this.setState(s=>({deckIndex:s.deckIndex+1}));
+    };
+    if(this.props.reduceMotion || !el){ commit(); return; }
+    this.animating=true;
+    const off = dir==='left'?'translate(-150%,40px) rotate(-16deg)':dir==='right'?'translate(150%,40px) rotate(16deg)':'translate(0,-155%) rotate(-3deg)';
+    el.style.transition='transform .35s cubic-bezier(.4,0,.7,1),opacity .35s'; el.style.opacity='0'; el.style.transform=off;
+    setTimeout(commit,350);
+  }
+  doSkip(){ this.flyOut('left'); }
+  doSave(){ this.flyOut('up'); }
+  doExplore(){ this.flyOut('right'); }
+  resetDeck(){ this.setState({deckIndex:0}); }
+
+  renderVals(){
+    const C=this.C, st=this.state, s=st.screen;
+    const chip=(on)=>({ display:'inline-flex',alignItems:'center',gap:6,padding:'9px 15px',borderRadius:999,fontSize:13,fontWeight:600,cursor:'pointer',whiteSpace:'nowrap',transition:'all .15s',
+      background:on?'rgba(205,171,135,0.18)':'rgba(236,226,216,0.05)', color:on?C.tan:C.dim, border:on?'1px solid rgba(205,171,135,0.6)':'1px solid rgba(236,226,216,0.12)' });
+    const avatar=(e,size)=>({ width:size,height:size,borderRadius:'50%',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'Spectral,serif',fontWeight:600,color:'#F8F4F0',fontSize:size*0.36,background:'linear-gradient(135deg,'+e.accent+',#C07858)' });
+
+    const isTab=(k)=>st.activeTab===k;
+    const navDefs=[['explore','Explore','compass'],['search','Search','magnifying-glass'],['saved','Saved','heart'],['messages','Messages','chat-circle'],['profile','You','user']];
+    const navItems=navDefs.map(([key,label,icon])=>{ const on=isTab(key); return { key,label, onClick:()=>this.openTab(key),
+      iconCls:'ph-'+(on?'fill':'light')+' ph-'+icon,
+      style:{display:'flex',flexDirection:'column',alignItems:'center',gap:3,flex:1,cursor:'pointer',color:on?C.tan:C.faint},
+      labelStyle:{fontSize:10,fontWeight:on?700:500,letterSpacing:.2,color:on?C.tan:C.faint} }; });
+
+    // deck
+    const di=st.deckIndex, topId=this.deckOrder[di], nextId=this.deckOrder[di+1];
+    const topEsti=topId?this.E[topId]:null, nextEsti=nextId?this.E[nextId]:null;
+    if(topEsti) topEsti.cover=topEsti.portfolio[0];
+    const hasCards=!!topEsti;
+
+    // current esti
+    const cur=st.selectedEsti?this.E[st.selectedEsti]:this.E.sage;
+    const curSaved=cur?st.saved.includes(cur.id):false;
+    const curServices=(cur?cur.services:[]).map((sv,i)=>({...sv, onClick:()=>this.bookCur()}));
+
+    // saved
+    const savedEstis=st.saved.map(id=>this.E[id]).filter(Boolean).map(e=>({ ...e, onClick:()=>this.openEsti(e.id), onUnsave:(ev)=>{ if(ev&&ev.stopPropagation)ev.stopPropagation(); this.toggleSaved(e.id); } }));
+
+    // search
+    const q=(st.query||'').trim().toLowerCase();
+    const stop=new Set(['esthetician','estheticians','friendly','near','find','want','looking','with','that','this','the','and','for','who']);
+    let searchResults=[];
+    if(q){ const toks=q.split(/[^a-z+]+/).filter(w=>w.length>2 && !stop.has(w));
+      searchResults=this.estiAll.map(e=>{ const hay=(e.name+' '+e.handle+' '+e.specialty+' '+e.bio+' '+e.tags.join(' ')).toLowerCase(); let sc=0; toks.forEach(t=>{ if(hay.includes(t)) sc++; }); if(q.indexOf('lgbtq')>=0 && e.tags.join(' ').toLowerCase().indexOf('lgbtq')>=0) sc+=3; return {e,sc}; })
+        .filter(x=>x.sc>0).sort((a,b)=>b.sc-a.sc)
+        .map(x=>({ ...x.e, onClick:()=>this.openEsti(x.e.id), avatarStyle:avatar(x.e,46), tagline:x.e.tags.slice(0,3).join(' · ') }));
+    }
+    const suggested=['LGBTQ+ friendly','Acne','Brows','Lashes','Holistic facials'].map(t=>({label:t,onClick:()=>this.runSuggested(t)}));
+
+    // threads
+    const tTimes={sage:'2m',opal:'1d'};
+    const threadList=Object.keys(st.threads).map(id=>{ const e=this.E[id]; const msgs=st.threads[id]||[]; const last=msgs.length?msgs[msgs.length-1].text:'Say hello'; return { id, name:e.name, initials:e.initials, last, time:tTimes[id]||'', onClick:()=>this.openThreadWith(id), avatarStyle:avatar(e,52) }; });
+    const at=st.activeThread, atE=at?this.E[at]:null;
+    const messages=at?(st.threads[at]||[]):[];
+    const msgItems=messages.map((m,i)=>({ key:i, text:m.text,
+      rowStyle:{display:'flex',justifyContent:m.from==='me'?'flex-end':'flex-start'},
+      bubbleStyle:{maxWidth:'76%',padding:'10px 14px',borderRadius:18,fontSize:14.5,lineHeight:1.45, background:m.from==='me'?C.taupe:'rgba(44,24,16,0.06)', color:m.from==='me'?'#F8F4F0':C.text, borderBottomRightRadius:m.from==='me'?6:18, borderBottomLeftRadius:m.from==='me'?18:6 } }));
+
+    // booking
+    const bEsti=st.bookingEsti?this.E[st.bookingEsti]:cur;
+    const rowSel=(on)=>({display:'flex',alignItems:'center',gap:12,padding:'14px 15px',borderRadius:14,marginBottom:9,cursor:'pointer',
+      background:on?'rgba(205,171,135,0.12)':'rgba(236,226,216,0.04)', border:on?'1px solid rgba(205,171,135,0.5)':'1px solid rgba(236,226,216,0.08)'});
+    const bServices=(bEsti?bEsti.services:[]).map((sv,i)=>({...sv, onClick:()=>this.selectService(i), style:rowSel(i===st.booking.service), check:i===st.booking.service?'ph-fill ph-check-circle':'ph-light ph-circle'}));
+    const dows=['Sun','Mon','Tue','Wed','Thu','Fri','Sat']; const base=new Date(2026,5,24);
+    const daySel=(on,avail)=>({minWidth:54,padding:'11px 0',borderRadius:14,textAlign:'center',cursor:avail?'pointer':'not-allowed',flexShrink:0,opacity:avail?1:.35,
+      background:on?C.taupe:'rgba(236,226,216,0.05)', color:on?'#2a2230':C.text, border:on?'none':'1px solid rgba(236,226,216,0.1)'});
+    const bDays=Array.from({length:7},(_,i)=>{ const d=new Date(base); d.setDate(base.getDate()+i); const avail=(d.getDay()!==0); return { i, dow:dows[d.getDay()], dom:d.getDate(), onClick:()=>{ if(avail) this.selectDay(i); }, style:daySel(i===st.booking.day,avail) }; });
+    const allTimes=['9:00 AM','10:30 AM','12:00 PM','1:30 PM','3:00 PM','4:30 PM'];
+    const takenSet=(st.booking.day%2===0)?['12:00 PM','3:00 PM']:['9:00 AM'];
+    const timeSel=(on,taken)=>({padding:'13px 0',borderRadius:12,textAlign:'center',fontSize:14,fontWeight:600,cursor:taken?'not-allowed':'pointer',
+      background:on?C.taupe:'rgba(236,226,216,0.05)', color:taken?'#5a5060':(on?'#2a2230':C.text), border:on?'none':'1px solid rgba(236,226,216,0.1)', textDecoration:taken?'line-through':'none'});
+    const bTimes=allTimes.map(t=>{ const taken=takenSet.indexOf(t)>=0; return { t, onClick:()=>{ if(!taken) this.selectTime(t); }, style:timeSel(st.booking.time===t, taken) }; });
+    const canConfirm=st.booking.time!=null;
+    const confirmStyle={width:'100%',padding:'16px',borderRadius:15,fontWeight:800,fontSize:15.5,textAlign:'center',cursor:canConfirm?'pointer':'default',
+      background:canConfirm?C.taupe:'rgba(236,226,216,0.08)', color:canConfirm?'#2a2230':'#6e6470'};
+    const svcName=bEsti?bEsti.services[st.booking.service].name:'';
+    const dd=bDays[st.booking.day];
+    const confirmLabel=canConfirm?('Confirm · '+(bEsti?bEsti.services[st.booking.service].price:'')):'Pick a time';
+    const confirmSummary=svcName+' with '+(bEsti?bEsti.name:'')+' on '+(dd?dd.dow:'')+' '+(dd?dd.dom:'')+' at '+(st.booking.time||'');
+
+    // journal
+    const moodDefs=[['radiant','Radiant','sun'],['calm','Calm','moon-stars'],['glowy','Glowy','sparkle'],['tired','Tired','cloud'],['stressed','Stressed','cloud-lightning']];
+    const moodSel=(on)=>({minWidth:78,padding:'16px 6px',borderRadius:16,textAlign:'center',cursor:'pointer',flexShrink:0,display:'flex',flexDirection:'column',alignItems:'center',
+      background:on?'rgba(205,171,135,0.16)':'rgba(236,226,216,0.05)', color:on?C.tan:C.dim, border:on?'1px solid rgba(205,171,135,0.55)':'1px solid rgba(236,226,216,0.1)'});
+    const moods=moodDefs.map(([k,label,icon])=>({ k,label, icon:'ph-light ph-'+icon, onClick:()=>this.setMood(k), style:moodSel(st.journal.mood===k) }));
+    const stepDefs=['Cleanse','Tone','Treatment serum','Moisturize','SPF','Gua sha','Mask'];
+    const stepSel=(on)=>({display:'inline-flex',alignItems:'center',gap:7,padding:'9px 14px',borderRadius:999,fontSize:13,fontWeight:600,cursor:'pointer',
+      background:on?'rgba(150,131,160,0.18)':'rgba(236,226,216,0.05)', color:on?'#c9bcc8':C.dim, border:on?'1px solid rgba(150,131,160,0.5)':'1px solid rgba(236,226,216,0.1)'});
+    const steps=stepDefs.map(label=>({ label, onClick:()=>this.toggleStep(label), check:st.journal.steps.indexOf(label)>=0?'ph-fill ph-check-circle':'ph-light ph-circle', style:stepSel(st.journal.steps.indexOf(label)>=0) }));
+    const todayLabel='Wednesday, June 24';
+
+    // ── calendar ──
+    const calWeekDates=this.getWeekDates(st.calWeekOffset);
+    const calMonths=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const cwd0=calWeekDates[0],cwd6=calWeekDates[6];
+    const calWeekLabel=calMonths[cwd0.getMonth()]+' '+cwd0.getDate()+' – '+(cwd0.getMonth()!==cwd6.getMonth()?calMonths[cwd6.getMonth()]+' ':'')+cwd6.getDate()+', '+cwd6.getFullYear();
+    const calGrid=this.buildCalGrid(calWeekDates,st.calAppts,st.calDrag);
+    const selAppt=st.calSelectedId?st.calAppts.find(a=>a.id===st.calSelectedId):null;
+    const calApptOpen=st.calSheet==='appt'&&!!selAppt;
+    const calApptAvatarStyle=selAppt?{width:52,height:52,borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'Spectral,serif',fontWeight:600,fontSize:20,color:'#F8F4F0',background:'linear-gradient(135deg,'+selAppt.color+','+selAppt.color+'99)',flexShrink:0}:{};
+    const slotToTime=(slot)=>{ const mins=9*60+slot*30,h=Math.floor(mins/60),m=mins%60,ampm=h>=12?'pm':'am',h12=h>12?h-12:(h===0?12:h); return h12+':'+(m<10?'0':'')+m+' '+ampm; };
+    const calDayNames=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+    const calApptTimeLabel=selAppt?(()=>{ const wd=calWeekDates[selAppt.day]; return calDayNames[selAppt.day]+' '+calMonths[wd.getMonth()]+' '+wd.getDate()+' · '+slotToTime(selAppt.slot)+' – '+slotToTime(selAppt.slot+selAppt.dur); })():'';
+    const reminderBtnStyle={display:'flex',alignItems:'center',justifyContent:'center',gap:9,padding:'14px',borderRadius:14,background:'rgba(192,120,88,0.08)',border:'1px solid rgba(205,171,135,0.3)',cursor:'pointer',fontSize:15,fontWeight:700,color:'#C07858'};
+    const calAddOpen=st.calSheet==='add';
+    const calDayFull=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+    const calAddTitle=st.calAddSlot!=null?slotToTime(st.calAddSlot):'Add to schedule';
+    const calAddSubtitle=st.calAddDay!=null?calDayFull[st.calAddDay]:'Choose what to add';
+
+    const menuLinks=[
+      {label:'Skin journal',icon:'ph-light ph-moon-stars',onClick:()=>this.openJournal()},
+      {label:'Saved profiles',icon:'ph-light ph-heart',onClick:()=>this.openTab('saved')},
+      {label:'Your studio',icon:'ph-light ph-storefront',onClick:()=>this.openTab('profile')},
+      {label:'Settings',icon:'ph-light ph-gear',onClick:()=>this.closeMenu()},
+      {label:'Help & support',icon:'ph-light ph-lifebuoy',onClick:()=>this.closeMenu()}
+    ];
+
+    const interestChips=this.interestList.map(t=>({label:t,onClick:()=>this.toggleInterest(t),style:chip(st.interests.indexOf(t)>=0)}));
+    const canCont=st.interests.length>=3;
+    const profileTagChips=this.interestList.map(t=>({label:t,onClick:()=>this.toggleProfileTag(t),style:chip(st.profileTags.indexOf(t)>=0)}));
+
+    return {
+      isSplash:s==='splash', isRole:s==='role', isInterests:s==='interests', isLocation:s==='location', isSetup:s==='setup',
+      isExplore:s==='explore', isSearch:s==='search', isSaved:s==='saved', isMessages:s==='messages', isThread:s==='thread',
+      isEstiProfile:s==='estiProfile', isBooking:s==='booking', isProfile:s==='profile', isEdit:s==='edit', isJournal:s==='journal',
+      menuOpen:st.menuOpen,
+      showNav:['explore','search','saved','messages','profile','estiProfile'].indexOf(s)>=0,
+      navItems, menuLinks,
+      goRole:()=>this.goRole(), chooseClient:()=>this.chooseClient(), chooseEsti:()=>this.chooseEsti(),
+      toggleMenu:()=>this.toggleMenu(), closeMenu:()=>this.closeMenu(), openJournal:()=>this.openJournal(), back:()=>this.back(), openEdit:()=>this.openEdit(),
+      // onboarding
+      interestChips, goLocation:()=>this.goLocation(), finishOnboard:()=>this.finishOnboard(), finishSetup:()=>this.finishSetup(),
+      continueStyle:{width:'100%',padding:'17px',borderRadius:16,fontWeight:800,fontSize:16,textAlign:'center',cursor:canCont?'pointer':'default',background:canCont?C.taupe:'rgba(236,226,216,0.08)',color:canCont?'#2a2230':'#6e6470'},
+      continueLabel:canCont?('Continue · '+st.interests.length+' picked'):'Pick at least 3',
+      locText:st.locText, setLoc:(e)=>this.setLoc(e), distance:st.distance, setDistance:(e)=>this.setDistance(e),
+      profileTagChips,
+      // deck
+      hasCards, hasNext:!!nextEsti, deckDone:!hasCards, topEsti, nextEsti,
+      cardRef:this.cardRef, skipCue:this.skipCue, likeCue:this.likeCue, saveCue:this.saveCue,
+      onCardDown:(e)=>this.onCardDown(e), onCardMove:(e)=>this.onCardMove(e), onCardUp:(e)=>this.onCardUp(e),
+      doSkip:()=>this.doSkip(), doSave:()=>this.doSave(), doExplore:()=>this.doExplore(), resetDeck:()=>this.resetDeck(),
+      // search
+      query:st.query, setQuery:(e)=>this.setQuery(e), suggested, searchResults,
+      hasResults:!!q && searchResults.length>0, noResults:!!q && searchResults.length===0, noQuery:!q,
+      resultsLabel:searchResults.length+' MATCH'+(searchResults.length===1?'':'ES'),
+      // saved
+      savedEstis, hasSaved:savedEstis.length>0, noSaved:savedEstis.length===0,
+      // messages
+      threadList, atName:atE?atE.name:'', atInitials:atE?atE.initials:'', atAvatarStyle:atE?avatar(atE,40):{}, msgItems, draft:at?(st.drafts[at]||''):'', setDraft:(e)=>this.setDraft(e), sendMsg:()=>this.sendMsg(),
+      // esti profile
+      cur, curHeartCls:curSaved?'ph-fill ph-heart':'ph-light ph-heart', toggleCurSaved:()=>this.toggleSaved(cur.id),
+      curBigAvatar:{...avatar(cur,90),border:'4px solid #F8F4F0',fontSize:34},
+      bookCur:()=>this.bookCur(), messageCur:()=>this.messageCur(), curServices, curPortfolio:cur?cur.portfolio:[],
+      // booking
+      bEstiName:bEsti?bEsti.name.split(' ')[0]:'', bServices, bDays, bTimes,
+      confirmStyle, confirmLabel, confirmBooking:()=>this.confirmBooking(), bookingConfirmed:st.booking.confirmed, confirmSummary, afterBooking:()=>this.afterBooking(),
+      // profile
+      pfSpecialty:st.profileSpecialty, pfBio:st.profileBio, pfTags:st.profileTags, pfPortfolio:this.E.luna.portfolio, pfPortfolioCount:this.E.luna.portfolio.length,
+      editSpecialty:(e)=>this.editSpecialty(e), editBio:(e)=>this.editBio(e), saveProfile:()=>this.saveProfile(),
+      // journal
+      moods, steps, journalNote:st.journal.note, setNote:(e)=>this.setNote(e), saveJournal:()=>this.saveJournal(), journalSaved:st.journalSaved,
+      // calendar
+      isEstiCal:s==='estiCal', openCal:()=>this.openCal(),
+      calPrevWeek:()=>this.calPrevWeek(), calNextWeek:()=>this.calNextWeek(),
+      calWeekLabel, calGrid,
+      calApptOpen, calApptAvatarStyle,
+      calApptInitials:selAppt?selAppt.initials:'',
+      calApptName:selAppt?selAppt.name:'',
+      calApptService:selAppt?selAppt.service:'',
+      calApptTimeLabel,
+      reminderBtnStyle, reminderBtnIcon:'ph-light ph-bell-ringing', reminderBtnLabel:'Send reminder to client',
+      closeCalSheet:()=>this.closeCalSheet(),
+      sendReminder:()=>this.sendReminder(),
+      msgCalClient:()=>this.msgCalClient(),
+      calAddOpen, calAddTitle, calAddSubtitle,
+      calBlockAvail:()=>this.calBlockAvail(),
+      calBlockTime:()=>this.calBlockTime(),
+      calAddNew:()=>this.calAddNew(),
+      calToastVisible:!!st.calToast, calToastMsg:st.calToast?st.calToast.msg:'',
+      todayLabel
+    };
+  }
+}
+</script>
+</body>
+</html>
